@@ -1,0 +1,144 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #000; /* Black theme */
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    z-index: 2;
+    position: relative;
+}
+header h1 {
+    font-size: 3rem;
+}
+header p {
+    color: #ccc;
+    margin-top: 10px;
+}
+
+/* Food Cards */
+.food-items {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+    z-index: 2;
+    position: relative;
+}
+.card {
+    background-color: #111;
+    border: 2px solid white;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.card h3 {
+    margin: 10px 0;
+}
+.card p {
+    padding: 0 10px 20px;
+    color: #ccc;
+}
+.card:hover {
+    transform: scale(1.05);
+    border-color: #00aaff;
+}
+
+/* Bubble Animation */
+.bubbles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+.bubbles span {
+    position: absolute;
+    bottom: -150px;
+    background: #00aaff;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: rise 8s infinite ease-in;
+}
+.bubbles span:nth-child(1) {
+    left: 10%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 0s;
+}
+.bubbles span:nth-child(2) {
+    left: 20%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+}
+.bubbles span:nth-child(3) {
+    left: 35%;
+    width: 50px;
+    height: 50px;
+    animation-delay: 4s;
+}
+.bubbles span:nth-child(4) {
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 1s;
+}
+.bubbles span:nth-child(5) {
+    left: 65%;
+    width: 45px;
+    height: 45px;
+    animation-delay: 3s;
+}
+.bubbles span:nth-child(6) {
+    left: 75%;
+    width: 35px;
+    height: 35px;
+    animation-delay: 5s;
+}
+.bubbles span:nth-child(7) {
+    left: 85%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 7s;
+}
+.bubbles span:nth-child(8) {
+    left: 95%;
+    width: 30px;
+    height: 30px;
+    animation-delay: 6s;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) scale(0.8);
+        opacity: 0;
+    }
+}
