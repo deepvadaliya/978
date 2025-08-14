@@ -7,43 +7,62 @@
 body {
     background-color: #000; /* Black theme */
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
 }
 
-/* Header */
+/* Header Section */
 header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 40px 20px;
-    z-index: 2;
     position: relative;
+    z-index: 2;
+    padding: 20px;
 }
-header h1 {
+.header-content h1 {
     font-size: 3rem;
 }
-header p {
+.header-content h1 span {
+    color: #00aaff;
+}
+.header-content p {
+    font-size: 1.2rem;
     color: #ccc;
-    margin-top: 10px;
+    margin: 15px 0;
+}
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #00aaff;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+.btn:hover {
+    background-color: #0088cc;
 }
 
-/* Food Cards */
+/* Food Menu */
 .food-items {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 50px 10%;
     z-index: 2;
     position: relative;
 }
 .card {
     background-color: #111;
-    border: 2px solid white;
     border-radius: 15px;
     overflow: hidden;
-    width: 300px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card img {
     width: 100%;
@@ -51,15 +70,16 @@ header p {
     object-fit: cover;
 }
 .card h3 {
-    margin: 10px 0;
+    margin: 15px 0;
+    font-size: 1.3rem;
 }
 .card p {
-    padding: 0 10px 20px;
-    color: #ccc;
+    padding: 0 15px 20px;
+    color: #bbb;
 }
 .card:hover {
     transform: scale(1.05);
-    border-color: #00aaff;
+    box-shadow: 0 6px 20px rgba(0, 170, 255, 0.7);
 }
 
 /* Bubble Animation */
@@ -78,64 +98,48 @@ header p {
     background: #00aaff;
     border-radius: 50%;
     opacity: 0.5;
-    animation: rise 8s infinite ease-in;
+    animation: rise 10s infinite ease-in;
 }
-.bubbles span:nth-child(1) {
-    left: 10%;
-    width: 40px;
-    height: 40px;
-    animation-delay: 0s;
+.bubbles span:nth-child(odd) {
+    animation-duration: 12s;
 }
-.bubbles span:nth-child(2) {
-    left: 20%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 2s;
+.bubbles span:nth-child(even) {
+    animation-duration: 8s;
 }
-.bubbles span:nth-child(3) {
-    left: 35%;
-    width: 50px;
-    height: 50px;
-    animation-delay: 4s;
+
+/* Random Positions and Sizes for More Realistic Effect */
+.bubbles span {
+    width: calc(10px + (50 - 10) * random);
+    height: calc(10px + (50 - 10) * random);
 }
-.bubbles span:nth-child(4) {
-    left: 50%;
-    width: 25px;
-    height: 25px;
-    animation-delay: 1s;
-}
-.bubbles span:nth-child(5) {
-    left: 65%;
-    width: 45px;
-    height: 45px;
-    animation-delay: 3s;
-}
-.bubbles span:nth-child(6) {
-    left: 75%;
-    width: 35px;
-    height: 35px;
-    animation-delay: 5s;
-}
-.bubbles span:nth-child(7) {
-    left: 85%;
-    width: 15px;
-    height: 15px;
-    animation-delay: 7s;
-}
-.bubbles span:nth-child(8) {
-    left: 95%;
-    width: 30px;
-    height: 30px;
-    animation-delay: 6s;
-}
+.bubbles span:nth-child(1) { left: 5%; width: 25px; height: 25px; animation-delay: 0s; }
+.bubbles span:nth-child(2) { left: 10%; width: 40px; height: 40px; animation-delay: 2s; }
+.bubbles span:nth-child(3) { left: 20%; width: 30px; height: 30px; animation-delay: 4s; }
+.bubbles span:nth-child(4) { left: 30%; width: 50px; height: 50px; animation-delay: 1s; }
+.bubbles span:nth-child(5) { left: 40%; width: 20px; height: 20px; animation-delay: 3s; }
+.bubbles span:nth-child(6) { left: 50%; width: 35px; height: 35px; animation-delay: 5s; }
+.bubbles span:nth-child(7) { left: 60%; width: 25px; height: 25px; animation-delay: 7s; }
+.bubbles span:nth-child(8) { left: 70%; width: 45px; height: 45px; animation-delay: 6s; }
+.bubbles span:nth-child(9) { left: 80%; width: 15px; height: 15px; animation-delay: 8s; }
+.bubbles span:nth-child(10){ left: 90%; width: 30px; height: 30px; animation-delay: 9s; }
+.bubbles span:nth-child(11){ left: 15%; width: 40px; height: 40px; animation-delay: 1.5s; }
+.bubbles span:nth-child(12){ left: 25%; width: 35px; height: 35px; animation-delay: 2.5s; }
+.bubbles span:nth-child(13){ left: 55%; width: 50px; height: 50px; animation-delay: 4.5s; }
+.bubbles span:nth-child(14){ left: 65%; width: 20px; height: 20px; animation-delay: 3.5s; }
+.bubbles span:nth-child(15){ left: 75%; width: 15px; height: 15px; animation-delay: 6.5s; }
+.bubbles span:nth-child(16){ left: 85%; width: 30px; height: 30px; animation-delay: 5.5s; }
+.bubbles span:nth-child(17){ left: 95%; width: 40px; height: 40px; animation-delay: 7.5s; }
+.bubbles span:nth-child(18){ left: 12%; width: 25px; height: 25px; animation-delay: 8.5s; }
+.bubbles span:nth-child(19){ left: 33%; width: 35px; height: 35px; animation-delay: 9.5s; }
+.bubbles span:nth-child(20){ left: 44%; width: 45px; height: 45px; animation-delay: 10.5s; }
 
 @keyframes rise {
     0% {
         transform: translateY(0) scale(1);
-        opacity: 0.5;
+        opacity: 0.4;
     }
     50% {
-        opacity: 1;
+        opacity: 0.8;
     }
     100% {
         transform: translateY(-110vh) scale(0.8);
